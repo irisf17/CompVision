@@ -12,22 +12,18 @@ Is the processing time identical when you do not display the image?
 >> 0.1454637050628662 sek when running the bright spot in built function.
 >> 0.18261241912841797 sek using the for loop code to find the bright spot
 
-
 How does your for-loop implementation compare to the built-in function? (nota imshow og mæli tímann á milli þess þegar kóðinn byrjar að runna og þangað til hann birtir myndina.
 Eftir imshow()).
 running both most brightness and reddest code. 
 >> Built in functions in opencv
 >> fps = 30
 >> 0.25275444984436035 sek
-
 >> For loops
 >> fps = 15 with for-loop
 >> 0.6331415176391602
 
-
 Moving your hand in front of the camera, estimate the latency between image capture and display.
 >> I would estimate 300 ms latency
-
 
 Is the latency different when capturing from a mobile phone?
 >> Yes, little bit more lag, I would estimate around 0.5 sek.

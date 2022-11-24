@@ -7,7 +7,7 @@ import numpy as np
 import time
 
 # 0 for the computer camera, 1 for the phone with ip-number
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 prev_frame_time = 0
 new_frame_time = 0
@@ -53,17 +53,17 @@ while(True):
 
     ret, frame = cap.read()
 
-    # BRIGHTEST POINT
+    # --------- BRIGHTEST POINT using inbuilt function -------------
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)  #(480, 640) 2d
      # finding the brightest value with inbuilt function
     (minVal, maxVal, minLoc, maxLoc) = cv2.minMaxLoc(gray)
     cv2.circle(frame, maxLoc, 5, (0, 0, 0), 2)
     
-    # finding brightest value with for loops
+    # --------- finding brightest value with for loops ----------
     # brightest_loc = bright_loc(gray)
     # cv2.circle(frame, brightest_loc, 5, (0, 0, 0), 2)
 
-    # REDDEST POINT using inbuilt function
+    # ----------- REDDEST POINT using inbuilt function -----------
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     
     # define range of red color in HSV
@@ -76,11 +76,11 @@ while(True):
     (minVal_red, maxVal_red, minLoc_red, maxLoc_red) = cv2.minMaxLoc(hsv[:,:,1],mask)
     cv2.circle(frame, maxLoc_red, 5, (0, 0, 255), 2)
     
-    # # finding most reddest sport using FOR loops
+    # # ---------- finding most reddest sport using FOR loops --------------
     # brightest_loc_red = reddest_loc(hsv)
     # cv2.circle(frame, brightest_loc_red, 5, (0, 0, 255), 2)
 
-    # font to display FPS
+    # ------------ font to display FPS ------------
     font = cv2.FONT_HERSHEY_SIMPLEX
     # time when we finish processing for the frame
     new_frame_time = time.time()
@@ -100,7 +100,6 @@ while(True):
     end_time = time.time()
 
     # print(end_time - start_time)
-
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
